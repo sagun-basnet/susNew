@@ -1,0 +1,37 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  border: 4px solid black;
+  height: 80vh;
+  position: relative;
+}
+
+.item {
+  /* width: 100%; */
+  height: 5rem;
+  border: 2px solid red;
+}
+.item-1 {
+  /* position: fixed; */
+  /* margin-top: 20rem;
+  position: sticky;
+  top: 0rem; */
+}
+.item-2 {
+  /* margin-top: 5rem; */
+  text-align: center;
+  position: absolute;
+  color: white;
+  top: 0rem;
+  bottom: 0rem;
+  /* right: 0rem; */
+  width: 100%;
+  height: 100%;
+  /* background-color: black; */
+  /* opacity: 0.1; */
+  background-color: rgba(0, 0, 0, 0.658);
+}
