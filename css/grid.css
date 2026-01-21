@@ -3,11 +3,12 @@
   margin: 0;
   box-sizing: border-box;
 }
-
+nav {
+  height: 5rem;
+  background-color: aqua;
+}
 .container {
-  height: 100vh;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  height: calc(100vh - 5rem);display: grid;grid-template-columns: repeat(4, 1fr);
   /* row-gap: 1rem;
   column-gap: 2rem; */
   gap: 2rem;
@@ -17,7 +18,9 @@
 
   /* grid-template-rows: 1fr 2fr; */
 }
-
+i {
+  font-size: 2rem;
+}
 .item {
   border: 2px solid black;
 }
