@@ -1,0 +1,54 @@
+:root {
+  --primary-color: black;
+  --secondary-color: red;
+  --bg-color: yellow;
+  --max-width: 100%;
+  --min-width: 80%;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+img {
+  height: 100%;
+  width: 100%;
+}
+
+.container {
+  width: var(--min-width);
+}
+
+.container {
+  height: 100vh;
+  background-color: var(--primary-color);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.item {
+  background-color: aquamarine;
+  border: 2px solid black;
+}
+
+/* mobile  */
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .container {
+    background-color: var(--secondary-color);
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+/* tablet  */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .container {
+    background-color: blue;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* laptop */
+/* @media screen and (min-width: 1024px) {
+  .container {
+    background-color: purple;
+  }
+} */
