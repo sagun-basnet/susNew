@@ -18,8 +18,14 @@
 // }
 
 const myFun = (a, b) => {
-  let c = a + b;
-  return c;
+  try {
+    let c = a + b;
+    return c;
+  } catch (err) {
+    console.log(err);
+  } finally {
+    console.log("asdfasdf");
+  }
 };
 
 // console.log(myFun(1, 2));

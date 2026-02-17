@@ -1,22 +1,13 @@
-let arr = [
-  1,
-  2,
-  3,
-  4,
-  5,
-  6,
-  7,
-  8,
-  9,
-  "sdfsd",
-  [2, 23, 4, 55],
-  45.34,
-  true,
-  false,
-//   myFun(),
-  null,
-  undefined,
-  { name: "sfgsdf", age: 23 },
-];
+const obj = {
+  name: "jhon deo",
+  age: 35,
+  email: "jhon@gmail.com",
+  password: "1234567890",
+  phone: "9812345678",
+};
 
-console.log(arr[arr.length -1].name);
+// console.log(obj.name, obj.email);
+
+const { password, ...others } = obj;
+
+console.log(others);
