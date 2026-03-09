@@ -1,10 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Form from "./components/Form";
+import { IoMdHome } from "react-icons/io";
 
 const App = () => {
-  // const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0);
   const [bgColor, setBgColor] = useState("");
   const [status, setStatus] = useState(false);
+
+  
+
+  useEffect(() => {
+    // handleAdd();
+    console.log("Hello");
+  }, [status]);
 
   // const handleAdd = () => {
   //   setCount((prev) => prev + 1);
@@ -16,6 +24,7 @@ const App = () => {
       onClick={() => setStatus(!status)}
       className="p-2 px-4 rounded-md text-white cursor-pointer bg-red-500"
     >
+      <IoMdHome />
       {status ? "OFF" : "ON"}
     </button>
     // <div className="h-screen" style={{ backgroundColor: bgColor }}>
