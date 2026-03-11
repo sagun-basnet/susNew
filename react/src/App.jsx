@@ -6,6 +6,7 @@ import ContactPage from "./pages/ContactPage";
 import NotFound from "./pages/NotFound";
 import LoginPage from "./pages/LoginPage";
 import UserLayout from "./Layout/UserLayout";
+import RegisterPage from "./pages/RegisterPage";
 
 const App = () => {
   // const AdminLayout = () => {
@@ -46,6 +47,10 @@ const App = () => {
     {
       path: "/login",
       element: <LoginPage />,
+    },
+    {
+      path: "/register",
+      element: <RegisterPage />,
     },
     {
       path: "*",

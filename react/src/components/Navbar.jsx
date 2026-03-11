@@ -23,7 +23,9 @@ const Navbar = () => {
 
       <div className="flex">
         <button className="p-2 px-4 rounded-md bg-blue-500">Login</button>
-        <button className="p-2 px-4 rounded-md bg-red-500">Register</button>
+        <Link to={"/register"}>
+          <button className="p-2 px-4 rounded-md bg-red-500">Register</button>
+        </Link>
       </div>
     </nav>
   );
