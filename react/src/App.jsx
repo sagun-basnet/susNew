@@ -7,6 +7,8 @@ import NotFound from "./pages/NotFound";
 import LoginPage from "./pages/LoginPage";
 import UserLayout from "./Layout/UserLayout";
 import RegisterPage from "./pages/RegisterPage";
+import Api from "./pages/Api";
+import SinglePage from "./pages/SinglePage";
 
 const App = () => {
   // const AdminLayout = () => {
@@ -47,6 +49,14 @@ const App = () => {
     {
       path: "/login",
       element: <LoginPage />,
+    },
+    {
+      path: "/products/:id",
+      element: <SinglePage />,
+    },
+    {
+      path: "/api",
+      element: <Api />,
     },
     {
       path: "/register",

@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 
 const RegisterPage = () => {
+  const user = {
+    email: "jhon@gmail.com",
+    password: "9812345678",
+  };
   const init = {
     name: "",
     address: "",
