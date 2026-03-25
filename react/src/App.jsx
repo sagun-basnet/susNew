@@ -9,6 +9,8 @@ import UserLayout from "./Layout/UserLayout";
 import RegisterPage from "./pages/RegisterPage";
 import Api from "./pages/Api";
 import SinglePage from "./pages/SinglePage";
+import Table from "./pages/Table";
+import AddProduct from "./pages/AddProduct";
 
 const App = () => {
   // const AdminLayout = () => {
@@ -51,12 +53,20 @@ const App = () => {
       element: <LoginPage />,
     },
     {
+      path: "/add-product",
+      element: <AddProduct />,
+    },
+    {
       path: "/products/:id",
       element: <SinglePage />,
     },
     {
       path: "/api",
       element: <Api />,
+    },
+    {
+      path: "/table",
+      element: <Table />,
     },
     {
       path: "/register",
