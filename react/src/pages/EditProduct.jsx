@@ -1,9 +1,10 @@
 import axios from "axios";
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const EditProduct = () => {
+  const { id } = useParams();
   const navigate = useNavigate();
   const init = {
     title: "",
@@ -22,17 +23,32 @@ const EditProduct = () => {
     e.preventDefault();
 
     await axios
-      .post("https://fakestoreapi.com/products", formData)
+      .put(`https://fakestoreapi.com/products/${parseInt(id)}`, formData)
       .then((res) => {
         console.log(res);
-        toast.success("Product added..");
+        toast.success("Product updated..");
         navigate("/table");
       })
       .catch((err) => {
         console.log(err);
-        toast.error("Error while adding product");
+        toast.error("Error while updating product");
       });
   };
+
+  const fetchData = async () => {
+    await axios
+      .get(`https://fakestoreapi.com/products/${parseInt(id)}`)
+      .then((res) => {
+        setFormData(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <div className="grid place-items-center h-screen">
       <form

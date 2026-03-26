@@ -11,6 +11,7 @@ import Api from "./pages/Api";
 import SinglePage from "./pages/SinglePage";
 import Table from "./pages/Table";
 import AddProduct from "./pages/AddProduct";
+import EditProduct from "./pages/EditProduct";
 
 const App = () => {
   // const AdminLayout = () => {
@@ -55,6 +56,10 @@ const App = () => {
     {
       path: "/add-product",
       element: <AddProduct />,
+    },
+    {
+      path: "/edit-product/:id",
+      element: <EditProduct />,
     },
     {
       path: "/products/:id",

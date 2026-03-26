@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { FaTrash } from "react-icons/fa";
 import { FaUserEdit } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const Table = () => {
@@ -89,9 +90,11 @@ const Table = () => {
                   >
                     <FaTrash />
                   </button>
-                  <button className="p-2 px-4 rounded-md bg-black text-blue-500 cursor-pointer">
-                    <FaUserEdit />
-                  </button>
+                  <Link to={`/edit-product/${item.id}`}>
+                    <button className="p-2 px-4 rounded-md bg-black text-blue-500 cursor-pointer">
+                      <FaUserEdit />
+                    </button>
+                  </Link>
                 </td>
               </tr>
             );
