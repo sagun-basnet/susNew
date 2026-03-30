@@ -1,14 +1,15 @@
 // const express = require("express");
 import express from "express";
 import userRoute from "./router/user.route.js";
+import cors from "cors";
 
 const app = express();
 const port = 5555;
 
 app.use(express.json());
+app.use(cors());
 
-
-app.use("/", userRoute) // /get-api
+app.use("/", userRoute); // /get-api
 
 app.post("/post-api", (req, res) => {
   //   console.log(req.body);
