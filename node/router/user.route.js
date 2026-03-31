@@ -4,6 +4,7 @@ import {
   deleteUser,
   editUser,
   getUser,
+  login,
   postUser,
   selectSingleUser,
   selectUser,
@@ -18,5 +19,6 @@ route.get("/select-user", selectUser);
 route.get("/get-single-user/:id", selectSingleUser);
 route.delete("/delete-user/:id", deleteUser);
 route.put("/edit-user/:id", editUser);
+route.post("/login", login);
 
 export default route;

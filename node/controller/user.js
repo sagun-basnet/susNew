@@ -1,4 +1,6 @@
 import db from "../database/db.js";
+import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
 
 export const getUser = (req, res) => {
   const q = `select * from user`;
@@ -14,11 +16,15 @@ export const postUser = (req, res) => {
   //receving data
   const { name, phone, email, password } = req.body;
 
+  const salt = bcrypt.genSaltSync(10);
+  const hashPassword = bcrypt.hashSync(password, salt);
+  // console.log(hashPassword);
+
   // query
   const q = `insert into user(name, phone, email, password) value(?,?,?,?)`;
 
   //executing query
-  db.query(q, [name, phone, email, password], (err, result) => {
+  db.query(q, [name, phone, email, hashPassword], (err, result) => {
     if (err) return res.send("Error while executing query", err);
 
     return res.send("User inserted into database", result);
@@ -87,4 +93,41 @@ export const selectSingleUser = (req, res) => {
   } catch (err) {
     console.log(err);
   }
+};
+
+export const login = (req, res) => {
+  const { email, password } = req.body;
+
+  const q = `select * from user where email = ?`;
+
+  db.query(q, [email], (err, result) => {
+    if (err) return res.send("Error while executing query".err);
+    // return res.send(result);
+    if (result.length === 0) {
+      return res.send("User not found");
+    }
+
+    const isPasswordCorrect = bcrypt.compareSync(password, result[0].password);
+
+    if (isPasswordCorrect) {
+      const token = jwt.sign(
+        {
+          id: result[0].id,
+          email: result[0].email,
+          role: result[0].role,
+        },
+        "secretkey",
+      );
+
+      const { password, ...others } = result[0];
+
+      return res.send({
+        message: "User login successfully",
+        token,
+        user: others,
+      });
+    }
+
+    return res.send("Password not match");
+  });
 };
